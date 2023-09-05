@@ -1,0 +1,38 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "cc.unilock",
+		"id": "xpcrops",
+		"version": "${version}",
+		"metadata": {
+			"name": "XPCrops",
+			"description": "Makes crops drop XP when harvested",
+			"contributors": {
+				"unilock": "Owner"
+			},
+			"contact": {
+				"sources": "https://github.com/unilock/quilt-template-mod"
+			},
+			"icon": "assets/xpcrops/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "cc.unilock.xpcrops.XPCrops"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": "*"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": "*"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.20.1"
+			}
+		]
+	},
+	"mixin": "xpcrops.mixins.json"
+}
