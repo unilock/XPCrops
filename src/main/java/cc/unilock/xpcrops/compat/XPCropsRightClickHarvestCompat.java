@@ -12,9 +12,9 @@ public class XPCropsRightClickHarvestCompat {
 	public static void init() {
 		RightClickHarvestCallbacks.AFTER_HARVEST.register((player, block) -> {
 			if (player instanceof ServerPlayerEntity spe && !block.getDefaultState().isIn(XPCropsTags.EXCLUDED_CROPS)) {
-				if (spe.getServerWorld().getRandom().nextInt(XPCrops.CONFIG.chance.value() - 1) == 0) {
+				if (spe.getWorld().getRandom().nextInt(XPCrops.CONFIG.chance.value() - 1) == 0) {
 					// we have to use spe blockpos, since rightclickharvest doesn't pass it
-					((BlockAccessor) block).callDropExperience(spe.getServerWorld(), spe.getBlockPos(), spe.getServerWorld().getRandom().rangeClosed(XPCrops.CONFIG.min_xp.value(), XPCrops.CONFIG.max_xp.value()));
+					((BlockAccessor) block).callDropExperience(spe.getWorld(), spe.getBlockPos(), spe.getWorld().getRandom().rangeClosed(XPCrops.CONFIG.min_xp.value(), XPCrops.CONFIG.max_xp.value()));
 				}
 			}
 		});
