@@ -1,8 +1,10 @@
 package cc.unilock.xpcrops;
 
+import cc.unilock.xpcrops.compat.XPCropsRightClickHarvestCompat;
 import cc.unilock.xpcrops.config.XPCropsConfig;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.loader.api.config.v2.QuiltConfig;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -15,6 +17,9 @@ public class XPCrops implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
+		if (QuiltLoader.isModLoaded("rightclickharvest")) {
+			XPCropsRightClickHarvestCompat.init();
+		}
 		//LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
 	}
 

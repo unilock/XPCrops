@@ -11,7 +11,18 @@ version = "${project.version}+${libs.versions.minecraft.get()}"
 group = project.maven_group
 
 repositories {
-	maven { url 'https://maven.terraformersmc.com/releases' }
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = 'Modrinth'
+				url = 'https://api.modrinth.com/maven'
+			}
+		}
+		filter {
+			includeGroup 'maven.modrinth'
+		}
+	}
+	maven { url = 'https://maven.terraformersmc.com/releases' }
 }
 
 // All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
@@ -24,6 +35,12 @@ dependencies {
 	//modImplementation libs.bundles.quilted.fabric.api // If you wish to use Fabric API's deprecated modules, you can replace the above line with this one
 
 	modImplementation(libs.mod.menu) {
+		transitive = false
+	}
+	modImplementation(libs.rightclickharvest) {
+		transitive = false
+	}
+	modRuntimeOnly(libs.jamlib) {
 		transitive = false
 	}
 }

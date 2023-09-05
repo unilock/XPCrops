@@ -26,9 +26,8 @@ public abstract class CropBlockMixin extends Block {
 	@Override
 	public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
 		super.afterBreak(world, player, pos, state, blockEntity, stack);
-		if (world.getRandom().nextInt(XPCrops.CONFIG.chance.value() - 1) == 0) {
-			if (!this.isMature(state) || player.isCreative() || state.isIn(XPCropsTags.EXCLUDED_CROPS)) return;
-			if (!world.isClient()) {
+		if (!world.isClient() && !player.isCreative() && this.isMature(state) && !state.isIn(XPCropsTags.EXCLUDED_CROPS)) {
+			if (world.getRandom().nextInt(XPCrops.CONFIG.chance.value() - 1) == 0) {
 				this.dropExperience((ServerWorld) world, pos, world.getRandom().rangeClosed(XPCrops.CONFIG.min_xp.value(), XPCrops.CONFIG.max_xp.value()));
 			}
 		}
