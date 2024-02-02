@@ -1,8 +1,8 @@
 package cc.unilock.xpcrops.config;
 
-import org.quiltmc.config.api.ReflectiveConfig;
-import org.quiltmc.config.api.annotations.Comment;
-import org.quiltmc.config.api.values.TrackedValue;
+import folk.sisby.kaleido.api.ReflectiveConfig;
+import folk.sisby.kaleido.lib.quiltconfig.api.annotations.Comment;
+import folk.sisby.kaleido.lib.quiltconfig.api.values.TrackedValue;
 
 public class XPCropsConfig extends ReflectiveConfig {
 	@Comment("Minimum XP to drop")

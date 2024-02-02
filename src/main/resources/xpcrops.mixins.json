@@ -1,11 +1,10 @@
 {
   "required": true,
-  "minVersion": "0.8",
   "package": "cc.unilock.xpcrops.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BlockAccessor",
-    "CropBlockMixin"
+    "BlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

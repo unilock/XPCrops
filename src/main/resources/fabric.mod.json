@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "xpcrops",
+	"version": "${version}",
+	"name": "XPCrops",
+	"description": "Makes crops drop XP when harvested",
+	"authors": [
+		"unilock"
+	],
+	"contact": {
+		"sources": "https://github.com/unilock/XPCrops"
+	},
+	"license": "MIT",
+	"icon": "assets/xpcrops/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"cc.unilock.xpcrops.XPCrops"
+		]
+	},
+	"mixins": [
+		"xpcrops.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": ">=1.20.1",
+		"fabric-api": "*"
+	}
+}
